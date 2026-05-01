@@ -1,19 +1,11 @@
 export default function About() {
   return (
     <section className="section reveal">
-      <div
-        className="container"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "40px",
-        }}
-      >
+      <div className="container grid-2" style={{ alignItems: "center", gap: "40px" }}>
         {/* ТЕКСТ */}
         <div style={{ flex: 1 }}>
-          <h2>О платформе</h2>
-          <p style={{ marginTop: "10px" }}>
+          <h2 style={{ fontSize: "36px", margin: 0 }}>О платформе</h2>
+          <p style={{ marginTop: "10px" , fontSize: "18px", lineHeight: "1.6", opacity: 0.8 }}>
             Наша образовательная платформа создана для того, чтобы сделать
             обучение доступным, структурированным и практико-ориентированным.
             Мы помогаем развивать цифровые навыки с нуля до уверенного уровня.

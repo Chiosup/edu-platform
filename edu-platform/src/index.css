@@ -31,9 +31,24 @@ body {
 }
 
 .section {
-  padding: 90px 0;
+  padding: 35px 0;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.35s ease;
 }
 
+.faq-answer p {
+  margin-top: 10px;
+}
+
+/* открытое состояние */
+.faq-answer.open {
+  max-height: 200px;
+  opacity: 1;
+}
 h1 {
   font-size: 54px;
   line-height: 1.1;
@@ -101,7 +116,12 @@ h3 {
   h1 {
     font-size: 36px;
   }
-
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+}
   h2 {
     font-size: 26px;
   }
@@ -127,7 +147,101 @@ h3 {
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   }
-}
+
+  /* responsive helpers for sections */
+  @media (max-width: 1024px) {
+    .grid-2 {
+      grid-template-columns: 1fr;
+    }
+
+    .hero img {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid-2 {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .hero img {
+      max-width: 100%;
+    }
+
+    /* reduce hero paddings and typographic scales for phones */
+    #hero { padding: 40px 0; }
+    #hero h1 { font-size: 34px !important; }
+    #hero p { font-size: 16px !important; max-width: 100% !important; }
+  }
+
+  /* Ensure hero and cta stack with content first then image on small screens */
+  @media (max-width: 768px) {
+    #hero .container.grid-2,
+    #cta .container.grid-2 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #hero .container.grid-2 > div:first-child,
+    #cta .container.grid-2 > div:first-child {
+      order: 1; /* text/buttons */
+    }
+
+    #hero .container.grid-2 > div:last-child,
+    #cta .container.grid-2 > div:last-child {
+      order: 2; /* image */
+      margin-top: 18px;
+    }
+  }
+
+  /* Center headings and buttons on mobile */
+  @media (max-width: 768px) {
+    #hero .container.grid-2 > div:first-child,
+    #cta .container.grid-2 > div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* target the immediate wrapper holding buttons (usually the div after the paragraph) */
+    #hero .container.grid-2 > div:first-child > div,
+    #cta .container.grid-2 > div:first-child > div {
+      display: flex !important;
+      justify-content: center !important;
+      gap: 16px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    /* allow buttons to be narrower on mobile */
+    #hero .container.grid-2 .btn,
+    #cta .container.grid-2 .btn {
+      width: auto;
+    }
+  }
+
+  /* Audience / tiles grid */
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    .items-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .items-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
 @media (max-width: 375px) {
 h1 {
   font-size: 52px;
@@ -271,4 +385,24 @@ body::before {
   height: 100%;
   background: radial-gradient(circle at top, rgba(59,130,246,0.08), transparent 60%);
   pointer-events: none;
+}
+.card strong {
+  font-size: 16px;
+}
+
+.card span {
+  font-size: 20px;
+  opacity: 0.7;
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 15px;
+}
+
+/* мобилка */
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
 }

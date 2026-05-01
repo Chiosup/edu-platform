@@ -28,15 +28,7 @@ export default function Benefits() {
         <h2>Преимущества платформы</h2>
 
         {/* нестандартная сетка */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr",
-            gridTemplateRows: "auto auto",
-            gap: "15px",
-            marginTop: "25px",
-          }}
-        >
+        <div className="benefits-grid">
           {/* большая карточка */}
           <div className="card" style={{ gridRow: "span 2" }}>
             <div style={{ fontSize: "28px" }}>🚀</div>

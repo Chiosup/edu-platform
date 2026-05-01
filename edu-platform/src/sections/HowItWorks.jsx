@@ -19,32 +19,87 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="section reveal">
+    <section
+      className="section reveal"
+      style={{ padding: "100px 0" }}
+    >
       <div className="container">
-        <h2>Как это работает</h2>
+        <h2
+          style={{
+            fontSize: "40px",
+            textAlign: "center",
+            marginBottom: "60px",
+          }}
+        >
+          Как это работает
+        </h2>
 
-        <div className="grid-4" style={{ display: "grid", gap: "15px", marginTop: "20px" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "30px",
+          }}
+        >
           {steps.map((step, i) => (
-            <div key={i} className="card">
+            <div
+              key={i}
+              className="card"
+              style={{
+                textAlign: "center",
+                padding: "30px 20px",
+                borderRadius: "20px",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-6px)";
+                e.currentTarget.style.boxShadow =
+                  "0 20px 40px rgba(0,0,0,0.2)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              {/* Номер */}
               <div
                 style={{
-                  width: "32px",
-                  height: "32px",
+                  width: "56px",
+                  height: "56px",
                   borderRadius: "50%",
-                  background: "var(--primary)",
+                  background: "#3b82f6",
+                  color: "#fff",
+                  fontSize: "20px",
+                  fontWeight: "bold",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  marginBottom: "10px",
-                  fontWeight: "bold",
-                  color: "white",
+                  margin: "0 auto 20px",
                 }}
               >
                 {i + 1}
               </div>
 
-              <h3 style={{ marginBottom: "8px" }}>{step.title}</h3>
-              <p>{step.text}</p>
+              {/* Заголовок */}
+              <h3
+                style={{
+                  fontSize: "20px",
+                  marginBottom: "10px",
+                }}
+              >
+                {step.title}
+              </h3>
+
+              {/* Текст */}
+              <p
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "1.6",
+                  opacity: 0.7,
+                }}
+              >
+                {step.text}
+              </p>
             </div>
           ))}
         </div>

@@ -14,7 +14,7 @@ export default function Reviews() {
   return (
     <section className="section reveal">
       <div className="container">
-        <h2>Отзывы</h2>
+        <h2 style={{ fontSize: "40px", marginBottom: "40px", textAlign: "center" }}>Отзывы</h2>
 
         <div
   className="grid-2"
@@ -41,15 +41,15 @@ export default function Reviews() {
         src={r.avatar}
         alt={r.name}
         style={{
-          width: "44px",
-          height: "44px",
+          width: "66px",
+          height: "66px",
           borderRadius: "50%",
           objectFit: "cover",
         }}
       />
 
       <div>
-        <div style={{ fontSize: "16px", fontWeight: "600" }}>
+        <div style={{ fontSize: "25px", fontWeight: "600" }}>
           {r.name}
         </div>
         <div style={{ fontSize: "12px", color: "#94a3b8" }}>
@@ -59,7 +59,7 @@ export default function Reviews() {
     </div>
 
     {/* TEXT */}
-    <p style={{ marginTop: "8px", lineHeight: "1.6" }}>
+    <p style={{ marginTop: "8px", lineHeight: "1.6", fontSize: "18px", opacity: 0.8 }}>
       {r.text}
     </p>
 
