@@ -1,111 +1,41 @@
 const modules = [
   {
     title: "Введение в профессию",
-    desc: "Погружение в сферу, обзор профессии и инструментов",
+    desc: "Погружение в сферу, обзор профессии и ключевых инструментов для старта.",
   },
   {
     title: "Основы UI/UX",
-    desc: "Базовые принципы дизайна интерфейсов и пользовательского опыта",
+    desc: "Базовые принципы проектирования интерфейсов и пользовательского опыта.",
   },
   {
     title: "Работа в Figma",
-    desc: "Практика создания интерфейсов в Figma",
+    desc: "Практика создания интерфейсов и прототипов в одном рабочем пространстве.",
   },
   {
     title: "Практический проект",
-    desc: "Создание полноценного проекта для портфолио",
+    desc: "Сборка полноценного кейса для портфолио с реальным итоговым результатом.",
   },
 ];
 
 export default function Program() {
   return (
-    <section
-      className="section reveal"
-      style={{ padding: "100px 0" }}
-    >
+    <section className="section reveal" id="program">
       <div className="container">
-        <h2
-          style={{
-            fontSize: "40px",
-            textAlign: "center",
-            marginBottom: "60px",
-          }}
-        >
-          Пример программы обучения
-        </h2>
+        <div className="section-heading section-heading-centered">
+          <span className="eyebrow">Программа</span>
+          <h2>Пример программы обучения</h2>
+          
+        </div>
 
-        <div
-          style={{
-            maxWidth: "800px",
-            margin: "0 auto",
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px",
-          }}
-        >
-          {modules.map((m, i) => (
-            <div
-              key={i}
-              className="card"
-              style={{
-                display: "flex",
-                gap: "20px",
-                alignItems: "flex-start",
-                padding: "25px",
-                borderRadius: "20px",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-6px)";
-                e.currentTarget.style.boxShadow =
-                  "0 20px 40px rgba(0,0,0,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
-              {/* Номер */}
-              <div
-                style={{
-                  minWidth: "50px",
-                  height: "50px",
-                  borderRadius: "12px",
-                  background: "#3b82f6",
-                  color: "#fff",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  flexShrink: 0,
-                }}
-              >
-                {i + 1}
+        <div className="program-list">
+          {modules.map((module, index) => (
+            <article key={module.title} className="card program-card">
+              <div className="program-number">{index + 1}</div>
+              <div className="program-copy">
+                <h3>{module.title}</h3>
+                <p>{module.desc}</p>
               </div>
-
-              {/* Контент */}
-              <div>
-                <h3
-                  style={{
-                    fontSize: "20px",
-                    marginBottom: "8px",
-                  }}
-                >
-                  {m.title}
-                </h3>
-
-                <p
-                  style={{
-                    fontSize: "15px",
-                    lineHeight: "1.6",
-                    opacity: 0.7,
-                  }}
-                >
-                  {m.desc}
-                </p>
-              </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

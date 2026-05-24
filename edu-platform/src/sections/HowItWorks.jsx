@@ -1,106 +1,39 @@
 const steps = [
   {
     title: "Выбор курса",
-    text: "Вы выбираете подходящий курс из каталога",
+    text: "Пользователь быстро находит подходящий курс по понятным карточкам и структуре.",
   },
   {
     title: "Обучение",
-    text: "Проходите уроки в удобном темпе",
+    text: "Уроки проходят в удобном темпе без давления и информационного шума.",
   },
   {
     title: "Практика",
-    text: "Выполняете задания и закрепляете знания",
+    text: "Каждый модуль закрепляется заданиями, чтобы знание сразу переходило в навык.",
   },
   {
     title: "Результат",
-    text: "Получаете навыки и готовый результат",
+    text: "На выходе студент получает прикладной опыт и готовый проект для портфолио.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section
-      className="section reveal"
-      style={{ padding: "100px 0" }}
-    >
+    <section className="section reveal" id="how-it-works">
       <div className="container">
-        <h2
-          style={{
-            fontSize: "40px",
-            textAlign: "center",
-            marginBottom: "60px",
-          }}
-        >
-          Как это работает
-        </h2>
+        <div className="section-heading section-heading-centered">
+          <span className="eyebrow">Как это работает</span>
+          <h2>Сценарий обучения </h2>
+          
+        </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "30px",
-          }}
-        >
-          {steps.map((step, i) => (
-            <div
-              key={i}
-              className="card"
-              style={{
-                textAlign: "center",
-                padding: "30px 20px",
-                borderRadius: "20px",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-6px)";
-                e.currentTarget.style.boxShadow =
-                  "0 20px 40px rgba(0,0,0,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
-              {/* Номер */}
-              <div
-                style={{
-                  width: "56px",
-                  height: "56px",
-                  borderRadius: "50%",
-                  background: "#3b82f6",
-                  color: "#fff",
-                  fontSize: "20px",
-                  fontWeight: "bold",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: "0 auto 20px",
-                }}
-              >
-                {i + 1}
-              </div>
-
-              {/* Заголовок */}
-              <h3
-                style={{
-                  fontSize: "20px",
-                  marginBottom: "10px",
-                }}
-              >
-                {step.title}
-              </h3>
-
-              {/* Текст */}
-              <p
-                style={{
-                  fontSize: "15px",
-                  lineHeight: "1.6",
-                  opacity: 0.7,
-                }}
-              >
-                {step.text}
-              </p>
-            </div>
+        <div className="steps-grid">
+          {steps.map((step, index) => (
+            <article key={step.title} className="card step-card">
+              <div className="step-number">{index + 1}</div>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </article>
           ))}
         </div>
       </div>

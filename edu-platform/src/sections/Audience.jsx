@@ -21,60 +21,27 @@ const items = [
 
 export default function Audience() {
   return (
-    <section className="section reveal" style={{ padding: "100px 0" }}>
+    <section className="section reveal" id="audience">
       <div className="container">
-        <h2
-          style={{
-            fontSize: "40px",
-            textAlign: "center",
-            marginBottom: "60px",
-          }}
-        >
-          Кому подойдёт платформа
-        </h2>
+        <div className="section-heading section-heading-centered">
+          <span className="eyebrow">Для кого</span>
+          <h2>Кому подойдет платформа</h2>
+          <p>
+            От новичков до специалистов, которые хотят сменить направление или
+            систематизировать уже имеющийся опыт.
+          </p>
+        </div>
 
         <div className="items-grid">
-          {items.map((item, i) => {
+          {items.map((item) => {
             const Icon = item.icon;
 
             return (
-              <div
-                key={i}
-                className="card"
-                style={{
-                  textAlign: "center",
-                  padding: "30px 20px",
-                  borderRadius: "20px",
-                  transition: "all 0.3s ease",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Иконка */}
-                <div
-                  style={{
-                    width: "64px",
-                    height: "64px",
-                    margin: "0 auto 20px",
-                    borderRadius: "16px",
-                    background: "rgba(59,130,246,0.15)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
+              <div key={item.title} className="card audience-card">
+                <div className="audience-icon">
                   <Icon size={28} color="#3b82f6" />
                 </div>
-
-                {/* Заголовок */}
-                <h3
-                  style={{
-                    fontSize: "18px",
-                    lineHeight: "1.4",
-                  }}
-                >
-                  {item.title}
-                </h3>
+                <h3>{item.title}</h3>
               </div>
             );
           })}

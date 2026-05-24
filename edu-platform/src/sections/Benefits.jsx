@@ -2,47 +2,50 @@ const items = [
   {
     icon: "⚡",
     title: "Быстрое обучение",
-    text: "Фокус на практике без лишней теории",
+    text: "Фокус на практике без перегруза лишней теорией и длинными вводными.",
   },
   {
     icon: "🧠",
     title: "Структурированный контент",
-    text: "Пошаговые модули обучения",
+    text: "Пошаговые модули дают понятный маршрут без ощущения хаоса.",
   },
   {
     icon: "🎯",
-    title: "Результат ориентирован",
-    text: "Ты получаешь реальные навыки",
+    title: "Ориентация на результат",
+    text: "Каждый блок ведёт к прикладному навыку, а не к абстрактному знанию.",
   },
   {
     icon: "💬",
     title: "Поддержка",
-    text: "Обратная связь по заданиям",
+    text: "Пользователь получает обратную связь и может двигаться увереннее.",
   },
 ];
 
 export default function Benefits() {
   return (
-    <section className="section reveal">
+    <section className="section reveal" id="benefits">
       <div className="container">
-        <h2>Преимущества платформы</h2>
+        <div className="section-heading">
+          <span className="eyebrow">Преимущества</span>
+          <h2>Преимущества платформы</h2>
+          
+        </div>
 
-        {/* нестандартная сетка */}
         <div className="benefits-grid">
-          {/* большая карточка */}
-          <div className="card" style={{ gridRow: "span 2" }}>
-            <div style={{ fontSize: "28px" }}>🚀</div>
-            <h3 style={{ marginTop: "10px" }}>Современный подход к обучению</h3>
-            <p style={{ marginTop: "10px" }}>
-              Объединяем практику, структуру и удобный интерфейс для максимального результата.
+          <div className="card card-feature card-feature-lg">
+            <div className="benefit-icon benefit-icon-lg">🚀</div>
+            <h3>Современный подход к обучению</h3>
+            <p>
+              Практика, структура и визуально чистый интерфейс работают вместе,
+              чтобы студент быстрее переходил от чтения к действию.
             </p>
           </div>
 
-          {items.map((item, i) => (
-            <div key={i} className="card">
-              <div style={{ fontSize: "22px" }}>{item.icon}</div>
-              <h3 style={{ marginTop: "8px" }}>{item.title}</h3>
-              <p style={{ marginTop: "6px" }}>{item.text}</p>
+          {items.map((item) => (
+            <div key={item.title} className="card card-feature">
+              <div className="benefit-icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
             </div>
           ))}
         </div>

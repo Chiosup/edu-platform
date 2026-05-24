@@ -1,73 +1,43 @@
 const reviews = [
   {
     name: "Алексей",
-    text: "Очень понятная структура обучения. Материал подаётся последовательно, без перегруза, и сразу можно применять знания на практике. Особенно понравились задания после каждого блока.",
+    text: "Очень понятная структура обучения. Материал подаётся последовательно, без перегруза, и знания сразу можно применять на практике.",
     avatar: "https://i.pravatar.cc/60?img=12",
   },
   {
     name: "Мария",
-    text: "Платформа приятно удивила. Всё интуитивно понятно, нет лишней информации, а интерфейс помогает сосредоточиться на обучении. Хороший баланс теории и практики.",
+    text: "Платформа приятно удивила. Интерфейс помогает сосредоточиться на обучении, а не на поиске нужного раздела или следующего шага.",
     avatar: "https://i.pravatar.cc/60?img=32",
   },
 ];
+
 export default function Reviews() {
   return (
-    <section className="section reveal">
+    <section className="section reveal" id="reviews">
       <div className="container">
-        <h2 style={{ fontSize: "40px", marginBottom: "40px", textAlign: "center" }}>Отзывы</h2>
-
-        <div
-  className="grid-2"
-  style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
-    gap: "20px",
-    marginTop: "20px",
-  }}
->
-          {reviews.map((r, i) => (
-  <div key={i} className="card">
-
-    {/* HEADER: аватар + имя */}
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-        marginBottom: "10px",
-      }}
-    >
-      <img
-        src={r.avatar}
-        alt={r.name}
-        style={{
-          width: "66px",
-          height: "66px",
-          borderRadius: "50%",
-          objectFit: "cover",
-        }}
-      />
-
-      <div>
-        <div style={{ fontSize: "25px", fontWeight: "600" }}>
-          {r.name}
+        <div className="section-heading section-heading-centered">
+          <span className="eyebrow">Отзывы</span>
+          <h2>Отзывы студентов</h2>
+          
         </div>
-        <div style={{ fontSize: "12px", color: "#94a3b8" }}>
-          Студент платформы
-        </div>
-      </div>
-    </div>
 
-    {/* TEXT */}
-    <p style={{ marginTop: "8px", lineHeight: "1.6", fontSize: "18px", opacity: 0.8 }}>
-      {r.text}
-    </p>
+        <div className="reviews-grid">
+          {reviews.map((review) => (
+            <article key={review.name} className="card review-card">
+              <div className="review-header">
+                <img src={review.avatar} alt={review.name} />
 
-  </div>
-))}
+                <div>
+                  <div className="review-name">{review.name}</div>
+                  <div className="review-role">Студент платформы</div>
+                </div>
+              </div>
+
+              <p>{review.text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-

@@ -3,19 +3,19 @@ import { useState } from "react";
 const data = [
   {
     question: "Сколько времени занимает обучение?",
-    answer: "Вы можете проходить курс в удобном темпе. В среднем — от 2 до 6 недель.",
+    answer: "Курсы можно проходить в удобном темпе. В среднем обучение занимает от двух до шести недель.",
   },
   {
     question: "Нужен ли опыт в дизайне или программировании?",
-    answer: "Нет, курсы подходят для новичков и начинаются с базовых понятий.",
+    answer: "Нет, программы подходят для новичков и стартуют с базовых понятий и практики.",
   },
   {
     question: "Будет ли практика?",
-    answer: "Да, каждый модуль включает практические задания и проекты.",
+    answer: "Да, каждый модуль включает практические задания и небольшие проекты для закрепления навыка.",
   },
   {
     question: "Можно ли получить сертификат?",
-    answer: "Да, после успешного завершения курса вы получите сертификат.",
+    answer: "Да, после успешного завершения курса пользователь получает сертификат.",
   },
 ];
 
@@ -23,36 +23,31 @@ export default function FAQ() {
   const [active, setActive] = useState(null);
 
   return (
-    <section className="section reveal">
+    <section className="section reveal" id="faq">
       <div className="container">
-        <h2>Часто задаваемые вопросы</h2>
+        <div className="section-heading">
+          <span className="eyebrow">FAQ</span>
+          <h2>Часто задаваемые вопросы</h2>
+          
+        </div>
 
-        <div style={{ marginTop: "20px" }}>
-          {data.map((item, i) => (
-            <div
-              key={i}
-              className="card"
-              style={{ marginBottom: "10px", cursor: "pointer" }}
-              onClick={() => setActive(active === i ? null : i)}
+        <div className="faq-list">
+          {data.map((item, index) => (
+            <button
+              key={item.question}
+              className={`card faq-item ${active === index ? "is-active" : ""}`}
+              type="button"
+              onClick={() => setActive(active === index ? null : index)}
             >
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <span className="faq-question">
                 <strong>{item.question}</strong>
-                <span
-                  style={{
-                    transition: "0.3s",
-                    transform: active === i ? "rotate(180deg)" : "rotate(0deg)",
-                    display: "inline-block",
-                  }}
-                
->
-  {active === i ? "−" : "+"}
-</span>
-              </div>
+                <span className="faq-icon">{active === index ? "−" : "+"}</span>
+              </span>
 
-              <div className={`faq-answer ${active === i ? "open" : ""}`}>
-  <p>{item.answer}</p>
-</div>
-            </div>
+              <span className={`faq-answer ${active === index ? "open" : ""}`}>
+                <span>{item.answer}</span>
+              </span>
+            </button>
           ))}
         </div>
       </div>

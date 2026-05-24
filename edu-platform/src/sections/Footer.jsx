@@ -1,8 +1,9 @@
 export default function Footer() {
   return (
-    <footer style={{ padding: "40px 0", background: "#0b1220" }}>
-      <div className="container">
-        <p>© 2026 Educational Platform. Все права защищены.</p>
+    <footer className="site-footer">
+      <div className="container footer-shell">
+        <p>© 2026 EduPlatform. Все права защищены.</p>
+        <a href="#hero">Наверх</a>
       </div>
     </footer>
   );

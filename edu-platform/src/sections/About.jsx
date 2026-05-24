@@ -1,27 +1,18 @@
 export default function About() {
   return (
-    <section className="section reveal">
-      <div className="container grid-2" style={{ alignItems: "center", gap: "40px" }}>
-        {/* ТЕКСТ */}
-        <div style={{ flex: 1 }}>
-          <h2 style={{ fontSize: "36px", margin: 0 }}>О платформе</h2>
-          <p style={{ marginTop: "10px" , fontSize: "18px", lineHeight: "1.6", opacity: 0.8 }}>
-            Наша образовательная платформа создана для того, чтобы сделать
-            обучение доступным, структурированным и практико-ориентированным.
-            Мы помогаем развивать цифровые навыки с нуля до уверенного уровня.
+    <section className="section reveal" id="about">
+      <div className="container about-grid">
+        <div className="section-copy">
+          <span className="eyebrow">О платформе</span>
+          <h2>Обучение, в котором легко ориентироваться и приятно оставаться</h2>
+          <p>
+            Платформа помогает пройти путь от знакомства с направлением до уверенного применения навыков на практике. Мы помогаем развивать цифровые навыки с нуля до уверенного уровня
           </p>
+          
         </div>
 
-        {/* КАРТИНКА */}
-        <div style={{ flex: 1, textAlign: "center" }}>
-          <img
-            src="img/about.svg"
-            alt="About illustration"
-            style={{
-              width: "100%",
-              maxWidth: "320px",
-            }}
-          />
+        <div className="about-media card card-soft">
+          <img src="img/about.svg" alt="Иллюстрация платформы" />
         </div>
       </div>
     </section>
